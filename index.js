@@ -1,10 +1,6 @@
-module.exports = function roundDate(roundToSeconds, roundStyle, date) {
-    if (arguments.length === 2) {
-        date = roundStyle;
-        roundStyle = "round";
-    }
-    else if (arguments.length !== 3) {
-        throw new Error("Expected either 2 or 3 arguments");
+function roundDate(roundStyle, roundToSeconds, date) {
+    if (arguments.length !== 3) {
+        throw new Error("Expected  2 arguments");
     }
 
     var startOfDay = new Date(date).setHours(0, 0, 0),
@@ -31,4 +27,10 @@ module.exports = function roundDate(roundToSeconds, roundStyle, date) {
     }
 
     return new Date(startOfDay + result);
+}
+
+module.exports =  {
+    round: roundDate.bind(null, "round"),
+    floor: roundDate.bind(null, "floor"),
+    ceil: roundDate.bind(null, "ceil")
 };

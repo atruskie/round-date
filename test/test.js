@@ -55,23 +55,15 @@ var testCases = {
 
 test("round date should throw if given 1 argument", function(t) {
     t.throws(function() {
-        roundDate(60);
+        roundDate.round(60);
     });
     t.end();
 });
 
-test("round date should throw if given more than 3 arguments", function(t) {
+test("round date should throw if given more than 2 arguments", function(t) {
     t.throws(function() {
-        roundDate(60, 1, 2, 3);
+        roundDate.round(60, 1, 2, 3);
     });
-    t.end();
-});
-
-test("the two argument form should produce the same output as if 'round' was specified", function(t) {
-    var resultA = roundDate(5 * 60, new Date("Fri Jan 30 2015 09:33:49 GMT+1000"));
-    var resultB = roundDate(5 * 60, "round", new Date("Fri Jan 30 2015 09:33:49 GMT+1000"));
-
-    t.equal(resultA.toISOString(), resultB.toISOString());
     t.end();
 });
 
@@ -79,9 +71,9 @@ Object.keys(testCases).map(function(key) {
     test(key, function (t) {
         var testCase = testCases[key],
             d = new Date(testCase.date),
-            a = roundDate(testCase.interval, "round", d),
-            b = roundDate(testCase.interval, "floor", d),
-            c = roundDate(testCase.interval, "ceil",  d);
+            a = roundDate.round(testCase.interval, d),
+            b = roundDate.floor(testCase.interval, d),
+            c = roundDate.ceil(testCase.interval,  d);
 
         t.equal(a.toISOString(), (new Date(testCase.round)).toISOString(), "round operation");
         t.equal(b.toISOString(), (new Date(testCase.floor)).toISOString(), "floor operation");
