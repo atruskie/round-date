@@ -16,10 +16,10 @@ For example it will allow you to round up or down to the nearest 45 min block in
 var roundDate = require("round-date");
 
 // round to the nearest 45 minute block
-var roundedDate = roundDate(45 * 60, new Date());
+var roundedDate = roundDate.round(45 * 60, new Date());
 
 // floor to the most recent 30 second offset
-var nearest30Seconds = roundDate(30, "floor", new Date());
+var nearest30Seconds = roundDate.floor(30, new Date());
 ```
 
 # Methods
