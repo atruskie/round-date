@@ -1,0 +1,24 @@
+{
+  "name": "round-date",
+  "main": "roundDate.js",
+  "version": "1.0.1",
+  "homepage": "https://github.com/atruskie/round-date",
+  "description": "A small module for rounding dates to arbitrary intervals",
+  "moduleType": [
+    "amd",
+    "globals",
+    "node"
+  ],
+  "keywords": [
+    "round",
+    "date"
+  ],
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ]
+}
