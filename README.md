@@ -1,7 +1,7 @@
 # round-date
 
 [![browser support](https://ci.testling.com/atruskie/round-date.png)
-](https://ci.testling.com/atruskie/round-date.png)
+](https://ci.testling.com/atruskie/round-date)
 
 
 ---
