@@ -1,0 +1,23 @@
+{
+  "name": "round-date",
+  "version": "1.0.0",
+  "description": "A small module for rounding dates to arbitrary intervals",
+  "main": "index.js",
+  "scripts": {
+    "test": "node test/test.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/atruskie/round-date.git"
+  },
+  "keywords": [
+    "date",
+    "round"
+  ],
+  "author": "Anthony Truskinger <anthony.truskinger+npm@gmail.com>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/atruskie/round-date/issues"
+  },
+  "homepage": "https://github.com/atruskie/round-date"
+}
