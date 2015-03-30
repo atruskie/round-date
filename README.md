@@ -1,7 +1,7 @@
 # round-date
 
-[![browser support](https://ci.testling.com/atruskie/round-date.png)
-](https://ci.testling.com/atruskie/round-date)
+
+[![Build Status](https://travis-ci.org/atruskie/round-date.png)](https://travis-ci.org/atruskie/round-date)
 
 
 ---
@@ -25,7 +25,7 @@ var nearest30Seconds = roundDate.floor(30, new Date());
 # Methods
 
 ```
-var roundDate = require("round-date")
+var roundDate = require("roundDate")
 ```
 
 ## var d = roundDate.round(roundToSeconds, date)
