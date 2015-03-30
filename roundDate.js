@@ -18,7 +18,7 @@
             throw new Error("Expected  2 arguments");
         }
 
-        var startOfDay = new Date(date).setHours(0, 0, 0),
+        var startOfDay = new Date(date).setHours(0, 0, 0, 0),
             roundToMilliseconds = roundToSeconds * 1000,
             msFromMidnight = (+date) - startOfDay,
             remainder = msFromMidnight % roundToMilliseconds,
