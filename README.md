@@ -43,7 +43,9 @@ Return a new date floored to the nearest `roundToSeconds` block.
 
 Return a new date ceilinged to the nearest `roundToSeconds` block.
 
-## startDate
+---
+
+### The `startDate` parameter
 If `startDate` is not defined, rounding is aligned to midnight of `date` in the current local timezone.
 If `startDate` is provided, rounding is instead relatively aligned to the supplied `startDate`.
 
