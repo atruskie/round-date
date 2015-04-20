@@ -13,14 +13,24 @@
     }
 }(this, function () {
 
-    function roundDate(roundStyle, roundToSeconds, date) {
-        if (arguments.length !== 3) {
-            throw new Error("Expected  2 arguments");
+    function roundDate(roundStyle, roundToSeconds, date, startOfDay) {
+        if (arguments.length !== 3 && arguments.length !== 4) {
+            throw new Error("Expected  2 or 3 arguments");
         }
 
-        var startOfDay = new Date(date).setHours(0, 0, 0, 0),
-            roundToMilliseconds = roundToSeconds * 1000,
-            msFromMidnight = (+date) - startOfDay,
+        var date = new Date(date);
+        
+        // optionally use a different relative start point
+        // useful for working in timezones other than local
+        if (startOfDay) {
+            startOfDay = new Date(startOfDay);
+        }
+        else {
+            startOfDay = new Date(date).setHours(0, 0, 0);
+        }
+        
+        var roundToMilliseconds = roundToSeconds * 1000,
+            msFromMidnight = (+date) - (+startOfDay),
             remainder = msFromMidnight % roundToMilliseconds,
             result = msFromMidnight;
 
@@ -41,7 +51,7 @@
             }
         }
 
-        return new Date(startOfDay + result);
+        return new Date((+startOfDay) + result);
     }
 
     return {

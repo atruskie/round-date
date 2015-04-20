@@ -18,6 +18,11 @@ var roundedDate = roundDate.round(45 * 60, new Date());
 
 // floor to the most recent 30 second offset
 var nearest30Seconds = roundDate.floor(30, new Date());
+
+// floor to the nearest 90min block, using midnight in Brisbane, Australia as the start point
+// (and assuming you are not currently in the +10 timezone)
+var roundedDateBne = roundDate.round(90 * 60, "2015-01-30T03:45:00+1000", "2015-01-30T00:00:00+1000");
+// produces: 2015-01-29T18:30:00.000Z (equivalent to: 2015-01-30T04:30:00.000+1000)
 ```
 
 # Methods
@@ -26,20 +31,23 @@ var nearest30Seconds = roundDate.floor(30, new Date());
 var roundDate = require("roundDate")
 ```
 
-## var d = roundDate.round(roundToSeconds, date)
+## var d = roundDate.round(roundToSeconds, date[, startDate])
 
 Return a new date rounded to the nearest `roundToSeconds` block.
-Rounding is aligned to midnight of `date`.
 
-## var d = roundDate.floor(roundToSeconds, date)
+## var d = roundDate.floor(roundToSeconds, date[, startDate])
 
 Return a new date floored to the nearest `roundToSeconds` block.
-Rounding is aligned to midnight of `date`.
 
-## var d = roundDate.ceil(roundToSeconds, date)
+## var d = roundDate.ceil(roundToSeconds, date[, startDate])
 
 Return a new date ceilinged to the nearest `roundToSeconds` block.
-Rounding is aligned to midnight of `date`.
+
+## startDate
+If `startDate` is not defined, rounding is aligned to midnight of `date` in the current local timezone.
+If `startDate` is provided, rounding is instead relatively aligned to the supplied `startDate`.
+
+Specify `startDate` is necessary when the current local timezone of the environment does not match the timezone the calculations are for.
 
 # Install
 
