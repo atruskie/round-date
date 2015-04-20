@@ -31,15 +31,15 @@ var roundedDateBne = roundDate.round(90 * 60, "2015-01-30T03:45:00+1000", "2015-
 var roundDate = require("roundDate")
 ```
 
-## var d = roundDate.round(roundToSeconds, date[, startDate])
+## round(roundToSeconds, date[, startDate])
 
 Return a new date rounded to the nearest `roundToSeconds` block.
 
-## var d = roundDate.floor(roundToSeconds, date[, startDate])
+## floor(roundToSeconds, date[, startDate])
 
 Return a new date floored to the nearest `roundToSeconds` block.
 
-## var d = roundDate.ceil(roundToSeconds, date[, startDate])
+## ceil(roundToSeconds, date[, startDate])
 
 Return a new date ceilinged to the nearest `roundToSeconds` block.
 
@@ -47,7 +47,7 @@ Return a new date ceilinged to the nearest `roundToSeconds` block.
 If `startDate` is not defined, rounding is aligned to midnight of `date` in the current local timezone.
 If `startDate` is provided, rounding is instead relatively aligned to the supplied `startDate`.
 
-Specify `startDate` is necessary when the current local timezone of the environment does not match the timezone the calculations are for.
+Specifying `startDate` is necessary when the current local timezone of the environment does not match the timezone the calculations are for.
 
 # Install
 
