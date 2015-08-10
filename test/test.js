@@ -84,6 +84,15 @@ testCases[nowTestName] = {
     startDate: new Date(now.getFullYear(), now.getMonth(), now.getDate())
 };
 
+testCases[nowTestName + " without start date"] = {
+    date: now,
+    round: new Date(now.getFullYear(), now.getMonth(), now.getDate(), now.getHours() + Math.round(now.getMinutes() / 60)),
+    floor: new Date(now.getFullYear(), now.getMonth(), now.getDate(), now.getHours()),
+    ceil: new Date(now.getFullYear(), now.getMonth(), now.getDate(), now.getHours() + 1),
+    interval: 60 * 60,
+    startDate: undefined
+};
+
 test("round date should throw if given 1 argument", function(t) {
     t.throws(function() {
         roundDate.round(60);
@@ -101,19 +110,23 @@ test("round date should throw if given more than 2 arguments", function(t) {
 function testTestCase(key) {
     test(key, function (t) {
         var testCase = testCases[key],
-            sd = testCase.startDate; // can be undefined
+            startDate = testCase.startDate, // can be undefined
             d = new Date(testCase.date),
-            rounded = roundDate.round(testCase.interval, d, sd),
-            floored = roundDate.floor(testCase.interval, d, sd),
-            ceilinged = roundDate.ceil(testCase.interval, d, sd);
+            rounded = roundDate.round(testCase.interval, d, startDate),
+            floored = roundDate.floor(testCase.interval, d, startDate),
+            ceilinged = roundDate.ceil(testCase.interval, d, startDate);
 
         t.equal(rounded.toISOString(), (new Date(testCase.round)).toISOString(), "round operation");
         t.equal(floored.toISOString(), (new Date(testCase.floor)).toISOString(), "floor operation");
         t.equal(ceilinged.toISOString(), (new Date(testCase.ceil )).toISOString(), "ceil  operation");
+
+        t.equal(+rounded,   +(new Date(testCase.round)), "round operation - numerically equal");
+        t.equal(+floored,   +(new Date(testCase.floor)), "floor operation - numerically equal");
+        t.equal(+ceilinged, +(new Date(testCase.ceil)), "ceil  operation - numerically equal");
         t.end();
     });
 }
 
-for (key in testCases) {
+for (var key in testCases) {
     testTestCase(key);
 }

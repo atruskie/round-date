@@ -26,7 +26,7 @@
             startOfDay = new Date(startOfDay);
         }
         else {
-            startOfDay = new Date(date).setHours(0, 0, 0);
+            startOfDay = new Date(date).setHours(0, 0, 0, 0);
         }
         
         var roundToMilliseconds = roundToSeconds * 1000,
@@ -41,7 +41,7 @@
             }
 
             if (roundStyle === "floor") {
-                result -= remainder
+                result -= remainder;
             }
             else if (roundStyle === "ceil") {
                 result += (roundToMilliseconds - remainder);
