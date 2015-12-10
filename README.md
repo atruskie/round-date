@@ -1,6 +1,6 @@
 # round-date
 
-[![Build Status](https://travis-ci.org/atruskie/round-date.png)](https://travis-ci.org/atruskie/round-date)
+[![Build Status](https://travis-ci.org/atruskie/round-date.svg)](https://travis-ci.org/atruskie/round-date)
 
 ---
 # Overview
